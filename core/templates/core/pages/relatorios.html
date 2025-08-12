@@ -1,0 +1,55 @@
+<!-- filepath: c:\Users\pc-jonathan\Desktop\github\senai-imersao-sabadou\core\templates\core\pages\relatorios.html -->
+{% extends 'core/base.html' %}
+{% load static %}  
+{% block title %}Relatórios{% endblock %} 
+
+{%block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/relatorios.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<h2 class="page-title">Relatórios de EPIs</h2>
+<form method="get" class="form-relatorio">
+  <div class="form-group">
+    <label for="tipo">Tipo de Relatório:</label>
+    <select id="tipo" name="tipo">
+      <option value="entregas">Entregas</option>
+      <option value="validade">Validade de EPIs</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="data_inicio">Data Início:</label>
+    <input type="date" id="data_inicio" name="data_inicio" />
+  </div>
+  <div class="form-group">
+    <label for="data_fim">Data Fim:</label>
+    <input type="date" id="data_fim" name="data_fim" />
+  </div>
+  <button type="submit" class="btn-relatorio">Gerar Relatório</button>
+</form>
+<hr />
+{% if relatorio %}
+<h3>Resultado do Relatório</h3>
+<table class="table-relatorio">
+  <thead>
+    <tr>
+      {% for col in relatorio.colunas %}
+      <th>{{ col }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for linha in relatorio.linhas %}
+    <tr>
+      {% for valor in linha %}
+      <td>{{ valor }}</td>
+      {% endfor %}
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="10">Nenhum dado encontrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %} {% endblock %}

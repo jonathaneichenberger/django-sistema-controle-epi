@@ -2,13 +2,17 @@ from django.shortcuts import render
 
 # Create your views here.
 def home(request):
-    return render(request, 'core/home.html')
+    return render(request, 'core/pages/home.html')
 
-def destinos(request):
-    return render(request, 'core/destinos.html')
+def listar_epis(request):
+    return render(request, 'core/pages/epis.html')
 
-def galeria(request):
-    return render(request, 'core/galeria.html')
+def usuarios(request):
+    return render(request, 'core/pages/usuarios.html')
 
-def sobre(request):
-    return render(request, 'core/sobre.html')
+def entregas(request):
+    return render(request, 'core/pages/entregas.html')
+
+def relatorios(request):
+    return render(request, 'core/pages/relatorios.html')
+

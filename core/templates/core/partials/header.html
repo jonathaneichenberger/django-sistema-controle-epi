@@ -1,0 +1,28 @@
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo-area">
+      {% comment %}
+      <img
+        src="{% static 'core/img/logo.svg' %}"
+        alt="ID SAFETY"
+        class="logo-img"
+      />
+      {% endcomment %}
+      <span class="logo-text">Safety Equipaments</span>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="{% url 'home' %}">Início</a></li>
+        <li><a href="{% url 'usuarios' %}">Usuários</a></li>
+        <li><a href="{% url 'listar_epis' %}">EPIs</a></li>
+        <li><a href="{% url 'entregas' %}">Entregas</a></li>
+        <li><a href="{% url 'relatorios' %}">Relatórios</a></li>
+      </ul>
+    </nav>
+    <div class="client-area">
+      <a href="#" class="client-link">
+        <span class="client-icon">&#128273;</span> ÁREA DO CLIENTE
+      </a>
+    </div>
+  </div>
+</header>

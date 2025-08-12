@@ -1,0 +1,57 @@
+<!-- filepath: c:\Users\pc-jonathan\Desktop\github\senai-imersao-sabadou\core\templates\core\pages\usuarios.html -->
+{% extends 'core/base.html' %} 
+{% load static %}
+{% block title %}Usuários{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/usuarios.css' %}" />
+{% endblock %} 
+
+{% block content %}
+<h2 class="page-title">Gerenciar Usuários</h2>
+<form method="post" class="form-usuario">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required />
+  </div>
+  <div class="form-group">
+    <label for="matricula">Matrícula:</label>
+    <input type="text" id="matricula" name="matricula" required />
+  </div>
+  <div class="form-group">
+    <label for="setor">Setor:</label>
+    <input type="text" id="setor" name="setor" />
+  </div>
+  <button type="submit" class="btn-usuario">Cadastrar Usuário</button>
+</form>
+<hr />
+<h3>Lista de Usuários</h3>
+<table class="table-usuarios">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Matrícula</th>
+      <th>Setor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+      <td>{{ usuario.nome }}</td>
+      <td>{{ usuario.matricula }}</td>
+      <td>{{ usuario.setor }}</td>
+      <td>
+        <a href="#" class="btn-table edit">Editar</a>
+        <a href="#" class="btn-table delete">Excluir</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">Nenhum usuário cadastrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

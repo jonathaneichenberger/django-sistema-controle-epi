@@ -1,0 +1,58 @@
+<!-- filepath: c:\Users\pc-jonathan\Desktop\github\senai-imersao-sabadou\core\templates\core\pages\epis.html -->
+{% extends 'core/base.html' %} 
+{% load static %} 
+
+{% block title %}EPIs{%endblock %} {% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'core/css/epis.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Gerenciar EPIs</h2>
+<form method="post" class="form-epi">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="nome">Nome do EPI:</label>
+    <input type="text" id="nome" name="nome" required />
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição:</label>
+    <input type="text" id="descricao" name="descricao" />
+  </div>
+  <div class="form-group">
+    <label for="validade">Validade (em meses):</label>
+    <input type="number" id="validade" name="validade" min="1" />
+  </div>
+  <button type="submit" class="btn-epi">Cadastrar EPI</button>
+</form>
+<hr />
+<h3>Lista de EPIs</h3>
+<table class="table-epis">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Validade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for epi in epis %}
+    <tr>
+      <td>{{ epi.nome }}</td>
+      <td>{{ epi.descricao }}</td>
+      <td>{{ epi.validade }} meses</td>
+      <td>
+        <a href="#" class="btn-table edit">Editar</a>
+        <a href="#" class="btn-table delete">Excluir</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4">Nenhum EPI cadastrado.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
