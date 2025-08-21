@@ -1,0 +1,25 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+/* Home centralizada */
+.home-banner {
+  background: url("../img/home-banner.jpg") no-repeat;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.home-banner-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.home-banner-text p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  max-width: 600px;
+}

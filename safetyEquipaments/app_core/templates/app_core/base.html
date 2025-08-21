@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'app_core/css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_core/css/home.css' %}" />
+    {% block css %} {% endblock %}
+    <title>{% block title %} Safety Equipaments {% endblock %}</title>
+  </head>
+  <body>
+    {% include "app_core/partials/header.html" %}
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    {% include "app_core/partials/footer.html" %}
+    <script src="{% static 'app_core/js/global.js' %}"></script>
+    {% block scripts %} {% endblock %}
+  </body>
+</html>
