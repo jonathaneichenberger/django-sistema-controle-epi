@@ -79,6 +79,7 @@ def registration_data():
         "senha": senha,
     }
 
+
 # -----------------------------
 # Usuário com permissões
 # -----------------------------
