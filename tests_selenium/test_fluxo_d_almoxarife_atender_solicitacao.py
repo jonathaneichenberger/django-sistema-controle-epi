@@ -60,7 +60,7 @@ def test_almoxarife_aprova_e_atende_solicitacao(
     time.sleep(1)
     set_input((By.NAME, "password"), almox.plain_password)
     time.sleep(1)
-    driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
+    driver.find_element(By.ID, "btn-colaborador-login").click()
     time.sleep(1)
 
     driver.get(url_gerenciar)

@@ -16,7 +16,7 @@ urlpatterns = [
     path(
         "solicitacoes/minhas/",
         views.MinhasSolicitacoesView.as_view(),
-        name="minhas_solicitacoes",
+        name="minhas_solicitacoes", 
     ),
     # Ações rápidas
     path("<int:pk>/marcar/devolvido/", views.marcar_devolvido, name="marcar_devolvido"),
